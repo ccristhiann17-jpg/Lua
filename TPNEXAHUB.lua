@@ -1,85 +1,145 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "NEXA HUB by Cristhian",
+    LoadingTitle = "Cargando...",
+    LoadingSubtitle = "Escapa del Teclado",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = "NexaHub",
+        FileName = "Config"
+    },
+    Discord = {
+        Enabled = false,
+        Invite = "noinvitelink",
+        RememberJoins = true
+    },
+    KeySystem = true,
+    KeySettings = {
+        Title = "NEXA HUB",
+        Subtitle = "Key System",
+        Note = "Key: cristhian_free",
+        FileName = "NexaHubKey",
+        SaveKey = true,
+        SecureKeyMode = false,
+        Key = {"cristhian_free"}
+    }
+})
+
 local player = game.Players.LocalPlayer
-local playerGui = player:WaitForChild("PlayerGui")
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
--- Crear ScreenGui principal
-local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "NexaHubGui"
-screenGui.ResetOnSpawn = false
-screenGui.Parent = playerGui
+-- Crear variable para Auto TP
+local autoTpActive = false
 
--- Crear Frame principal (fondo)
-local mainFrame = Instance.new("Frame")
-mainFrame.Name = "MainFrame"
-mainFrame.Size = UDim2.new(0, 300, 0, 550)
-mainFrame.Position = UDim2.new(0.5, -150, 0.5, -275)
-mainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 30)
-mainFrame.BorderSizePixel = 0
-mainFrame.Parent = screenGui
+-- CATEGORÍA: TELEPORTS
+local Tab = Window:CreateTab("🚀 Teleports", 4483362458)
 
--- Crear título
-local titleLabel = Instance.new("TextLabel")
-titleLabel.Name = "Title"
-titleLabel.Size = UDim2.new(1, 0, 0, 50)
-titleLabel.BackgroundColor3 = Color3.fromRGB(10, 10, 20)
-titleLabel.TextColor3 = Color3.fromRGB(100, 200, 255)
-titleLabel.TextSize = 20
-titleLabel.Font = Enum.Font.GothamBold
-titleLabel.Text = "NEXA HUB by Cristhian"
-titleLabel.BorderSizePixel = 0
-titleLabel.Parent = mainFrame
+-- Función contador
+local function startCountdown()
+    local countdownLabel = Rayfield:Notify({
+        Title = "⏱️ Contador",
+        Content = "35 segundos",
+        Duration = 35,
+        Image = 4483362458,
+    })
+end
 
--- Crear contador (al inicio oculto)
-local countdownLabel = Instance.new("TextLabel")
-countdownLabel.Name = "Countdown"
-countdownLabel.Size = UDim2.new(1, 0, 0, 40)
-countdownLabel.Position = UDim2.new(0, 0, 0, 50)
-countdownLabel.BackgroundColor3 = Color3.fromRGB(255, 100, 0)
-countdownLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-countdownLabel.TextSize = 18
-countdownLabel.Font = Enum.Font.GothamBold
-countdownLabel.Text = ""
-countdownLabel.BorderSizePixel = 0
-countdownLabel.Visible = false
-countdownLabel.Parent = mainFrame
+-- TP Etapa 14
+Tab:CreateButton({
+    Name = "TP Etapa 14",
+    Callback = function()
+        local character = player.Character
+        if character then
+            local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+            if humanoidRootPart then
+                local etapa14Pos = Vector3.new(4637, 567, 5146)
+                humanoidRootPart.CFrame = CFrame.new(etapa14Pos + Vector3.new(0, 3, 0))
+                Rayfield:Notify({
+                    Title = "✅ Teleportado",
+                    Content = "Etapa 14 (4637, 567, 5146)",
+                    Duration = 3,
+                    Image = 4483362458,
+                })
+                startCountdown()
+            end
+        end
+    end,
+})
 
--- Crear botón Auto TP
-local autoTpButton = Instance.new("TextButton")
-autoTpButton.Name = "AutoTpButton"
-autoTpButton.Size = UDim2.new(0.9, 0, 0, 40)
-autoTpButton.Position = UDim2.new(0.05, 0, 0, 105)
-autoTpButton.BackgroundColor3 = Color3.fromRGB(50, 100, 200)
-autoTpButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-autoTpButton.TextSize = 16
-autoTpButton.Font = Enum.Font.GothamBold
-autoTpButton.Text = "Auto TP ON"
-autoTpButton.BorderSizePixel = 0
-autoTpButton.Parent = mainFrame
+-- TP Etapa 15
+Tab:CreateButton({
+    Name = "TP Etapa 15",
+    Callback = function()
+        local character = player.Character
+        if character then
+            local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+            if humanoidRootPart then
+                local etapa15Pos = Vector3.new(5042, 557, 5135)
+                humanoidRootPart.CFrame = CFrame.new(etapa15Pos + Vector3.new(0, 3, 0))
+                Rayfield:Notify({
+                    Title = "✅ Teleportado",
+                    Content = "Etapa 15 (5042, 557, 5135)",
+                    Duration = 3,
+                    Image = 4483362458,
+                })
+                startCountdown()
+            end
+        end
+    end,
+})
 
--- Crear botón TP Etapa 14
-local tpEtapa14Button = Instance.new("TextButton")
-tpEtapa14Button.Name = "TpEtapa14Button"
-tpEtapa14Button.Size = UDim2.new(0.9, 0, 0, 40)
-tpEtapa14Button.Position = UDim2.new(0.05, 0, 0, 160)
-tpEtapa14Button.BackgroundColor3 = Color3.fromRGB(200, 100, 50)
-tpEtapa14Button.TextColor3 = Color3.fromRGB(255, 255, 255)
-tpEtapa14Button.TextSize = 16
-tpEtapa14Button.Font = Enum.Font.GothamBold
-tpEtapa14Button.Text = "🚀 TP Etapa 14"
-tpEtapa14Button.BorderSizePixel = 0
-tpEtapa14Button.Parent = mainFrame
+-- TP Etapa 16
+Tab:CreateButton({
+    Name = "TP Etapa 16",
+    Callback = function()
+        local character = player.Character
+        if character then
+            local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+            if humanoidRootPart then
+                local etapa16Pos = Vector3.new(7931, 712, 5135)
+                humanoidRootPart.CFrame = CFrame.new(etapa16Pos + Vector3.new(0, 3, 0))
+                Rayfield:Notify({
+                    Title = "✅ Teleportado",
+                    Content = "Etapa 16 (7931, 712, 5135)",
+                    Duration = 3,
+                    Image = 4483362458,
+                })
+                startCountdown()
+            end
+        end
+    end,
+})
 
--- Crear botón TP Etapa 15
-local tpEtapa15Button = Instance.new("TextButton")
-tpEtapa15Button.Name = "TpEtapa15Button"
-tpEtapa15Button.Size = UDim2.new(0.9, 0, 0, 40)
-tpEtapa15Button.Position = UDim2.new(0.05, 0, 0, 215)
-tpEtapa15Button.BackgroundColor3 = Color3.fromRGB(200, 100, 50)
-tpEtapa15Button.TextColor3 = Color3.fromRGB(255, 255, 255)
-tpEtapa15Button.TextSize = 16
-tpEtapa15Button.Font = Enum.Font.GothamBold
-tpEtapa15Button.Text = "🚀 TP Etapa 15"
-tpEtapa15Button.BorderSizePixel = 0
-tpEtapa15Button.Parent = mainFrame
+-- Auto TP Toggle
+Tab:CreateToggle({
+    Name = "Auto TP",
+    CurrentValue = false,
+    Flag = "AutoTpToggle",
+    Callback = function(Value)
+        autoTpActive = Value
+        
+        if autoTpActive then
+            task.spawn(function()
+                while autoTpActive do
+                    local character = player.Character
+                    if character then
+                        local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+                        if humanoidRootPart then
+                            local meta = workspace:FindFirstChild("Meta") or workspace:FindFirstChild("Exit") or workspace:FindFirstChild("Finish")
+                            if meta then
+                                humanoidRootPart.CFrame = meta.CFrame + Vector3.new(0, 3, 0)
+                            end
+                        end
+                    end
+                    task.wait(0.5)
+                end
+            end)
+        end
+    end,
+})
 
--- Estado del Auto
-
+Rayfield:SetNotificationFont(Enum.Font.GothamBold)
+
+print("✅ NEXA HUB cargado - by Cristhian")
